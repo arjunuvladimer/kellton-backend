@@ -2,6 +2,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const apiroute = require('./routes/api_route')
+const cors = require('cors')
 
 // Intialize the Application
 const app = express()
@@ -12,6 +13,7 @@ app.use(express.json()) // Set Content Type to JSON
 
 // Send Message for your localhost
 app.use('/', apiroute)
+app.use(cors())
 
 
 

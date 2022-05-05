@@ -3,6 +3,7 @@
 const express = require('express')
 const router = express.Router()
 const Controller = require('../controller/controller')
+const cors = require('cors')
 
 // Default Route
 router.get('/',Controller.showIndex )
@@ -10,8 +11,11 @@ router.get('/',Controller.showIndex )
 // Add Products
 router.post('/add-products',Controller.addProducts)
 
-// Get Products
-router.get('/get-products',Controller.showProducts )
+// Get All Category Products
+router.get('/get-products',cors(), Controller.showProducts )
+
+// Get Single Category Product
+router.get('get-category/:id',Controller.getCategoryItems)
 
 // Client => Postman
     // Default:
